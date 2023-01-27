@@ -18,7 +18,8 @@ jobs:
         token: ${{ secrets.TOKEN }}
         env: release
         repository: jwenz723/testing-deployments2
-        payload: '{"SHA":"{{ github.sha }}","owner":"jeff"}'
+        payload: |
+          {"SHA":"{{ github.sha }}","run_id":"{{ github.run_id }}"}
 
     - name: do my deploy
       run: sleep 5
