@@ -18,6 +18,7 @@ jobs:
         token: ${{ secrets.TOKEN }}
         env: release
         repository: jwenz723/testing-deployments2
+        payload: '{"SHA": "{{ github.sha }}"}'
 
     - name: do my deploy
       run: sleep 5
@@ -32,3 +33,4 @@ jobs:
         env: ${{ steps.deployment.outputs.env }}
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
         repository: jwenz723/testing-deployments2
+        env_url: https://google.com
