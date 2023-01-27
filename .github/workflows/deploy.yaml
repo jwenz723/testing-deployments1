@@ -15,8 +15,9 @@ jobs:
       id: deployment
       with:
         step: start
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         env: release
+        repository: jwenz723/testing-deployments2
 
     - name: do my deploy
       run: sleep 5
@@ -26,7 +27,8 @@ jobs:
       if: always()
       with:
         step: finish
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         status: ${{ job.status }}
         env: ${{ steps.deployment.outputs.env }}
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+        repository: jwenz723/testing-deployments2
