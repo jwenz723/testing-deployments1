@@ -25,12 +25,12 @@ jobs:
       with:
         step: start
         token: ${{ secrets.TOKEN }}
-        env: ${{ inputs.environment }}
+        env: ${{ inputs.environment || 'dev' }}
         repository: jwenz723/testing-deployments2
         payload: '{"SHA":"${{ github.sha }}","run_id":"${{ github.run_id }}"}'
         ref: 7e03a84d97bf1e8576a6c87ab27ec82b9fede4ba
 
-    - name: do my deploy
+    - name: deploy to ${{ inputs.environment }}
       run: sleep 5
 
     - name: update deployment status
