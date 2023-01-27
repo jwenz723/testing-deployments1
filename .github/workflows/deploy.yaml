@@ -19,7 +19,7 @@ jobs:
         env: release
         repository: jwenz723/testing-deployments2
         payload: '{"SHA":"${{ github.sha }}","run_id":"${{ github.run_id }}"}'
-#         ref:
+        ref: 7e03a84d97bf1e8576a6c87ab27ec82b9fede4ba
 
     - name: do my deploy
       run: sleep 5
