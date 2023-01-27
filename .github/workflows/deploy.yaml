@@ -8,7 +8,7 @@ on:
         description: 'environment'
         required: true
         type: choice
-        default: dev
+        default: 'dev'
         options:
         - dev
         - test
