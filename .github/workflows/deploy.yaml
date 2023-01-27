@@ -3,8 +3,16 @@ on:
     branches:
     - main
   workflow_dispatch:
-  
-permissions: write-all
+    inputs:
+      environment:
+        description: 'environment'
+        required: true
+        type: choice
+        options:
+        - dev
+        - test
+        - staging
+        - prod
 
 jobs:
   deploy:
@@ -16,7 +24,7 @@ jobs:
       with:
         step: start
         token: ${{ secrets.TOKEN }}
-        env: release
+        env: ${{ inputs.environment }}
         repository: jwenz723/testing-deployments2
         payload: '{"SHA":"${{ github.sha }}","run_id":"${{ github.run_id }}"}'
         ref: 7e03a84d97bf1e8576a6c87ab27ec82b9fede4ba
